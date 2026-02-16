@@ -1,379 +1,395 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Upgraded Body Font */
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4; /* A very light grey background */
+  line-height: 1.7; /* Better readability */
+  color: #444; /* Softer text color */
+  background-color: #f8f9fa; /* Modern light background */
+}
+
+/* Upgraded Heading Font */
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-top: 0;
 }
 
 section {
-  padding: 40px 60px; /* More padding */
-  background: #ffffff; /* White background for all content sections */
-  margin-bottom: 10px; /* Small space between sections */
-}
-
-h1, h2, h3, h4 {
-  font-weight: 600;
+  padding: 60px 80px; /* More breathing room */
+  background: #ffffff;
+  margin-bottom: 0;
+  border-bottom: 1px solid #eee; /* Subtle separation */
 }
 
 ul {
-  list-style-type: none; /* Removes default bullets */
+  list-style-type: none;
   padding-left: 0;
+  margin: 0;
 }
 
 li {
   margin-bottom: 8px;
 }
 
-/* =======================
-   Layout: Sidebar + Main
-======================== */
+a {
+  text-decoration: none;
+}
 
-/* --- The Sidebar (Updated for better layout) --- */
+/* =======================
+   2. SIDEBAR (Navigation)
+======================== */
 .sidebar {
-  width: 250px;
+  width: 260px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  /* Blue-to-green gradient */
+  /* ORIGINAL BRAND GRADIENT RESTORED */
   background: linear-gradient(to bottom, #348AC7, #74D680); 
-  color: white; /* Changed text to WHITE for better contrast */
-  padding: 30px;
+  color: white;
+  padding: 40px 30px;
   box-sizing: border-box;
-  
-  /* Flexbox to push socials to bottom */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Adds nice depth */
+  z-index: 1000;
 }
 
-/* --- Styles for the logo/title --- */
 .sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Aligned left */
-  margin-bottom: 40px; /* More space below logo */
+  margin-bottom: 50px;
 }
 
 .sidebar-header img {
-  height: 3em;
+  height: 45px;
   width: auto;
   margin-right: 15px;
-  background: white; /* Adds a small white box behind logo if transparent */
-  padding: 2px;
-  border-radius: 4px;
+  background: white;
+  padding: 4px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .sidebar-header h2 {
-  color: white; /* White text */
+  color: white;
   margin: 0;
-  line-height: 1.1;
-  font-size: 1.4em;
+  font-size: 1.3em;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-/* --- Navigation Links (Updated) --- */
 .sidebar nav {
   display: flex;
   flex-direction: column;
+  gap: 10px; /* Space between links */
 }
 
 .sidebar nav a {
-  color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
-  text-decoration: none;
-  font-size: 1.2em; /* Larger text */
-  padding: 12px 15px; /* More clicking area */
-  margin-bottom: 5px;
-  border-radius: 8px; /* Rounded corners */
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 12px 15px;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar nav a i {
-  width: 25px; /* Ensures icons align nicely */
+  width: 30px;
   text-align: center;
   margin-right: 10px;
+  font-size: 0.9em;
 }
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-  background-color: rgba(255, 255, 255, 0.2); /* White highlight on hover */
+  background-color: rgba(255, 255, 255, 0.25);
   color: white;
-  font-weight: bold;
-  transform: translateX(5px); /* Small movement effect */
+  transform: translateX(5px);
 }
 
-/* --- Sidebar Socials (New Bottom Section) --- */
 .sidebar-socials {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.3); /* Thin divider line */
+  gap: 25px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.3);
 }
 
 .sidebar-socials a {
   color: white;
-  font-size: 1.5em;
-  transition: transform 0.2s;
+  font-size: 1.4em;
+  opacity: 0.9;
+  transition: all 0.3s;
 }
 
 .sidebar-socials a:hover {
-  transform: scale(1.2); /* Grows slightly on hover */
-}
-
-
-/* --- The main content area on the right --- */
-.main-content {
-  margin-left: 250px; /* MUST be the same as the sidebar width */
-  padding: 0;
+  transform: translateY(-3px) scale(1.1);
 }
 
 /* =======================
-   Main Content Sections
+   3. MAIN CONTENT
 ======================== */
+.main-content {
+  margin-left: 260px; /* Matches sidebar width */
+}
 
-/* --- Hero Header with Image --- */
+/* --- Hero Section --- */
 .hero-header {
-  /* 1. Dark overlay */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url('hero-image.jpg'); /* Using your uploaded image */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), 
+              url('hero-image.jpg'); 
   background-size: cover;
-  background-position: center 60%; /* Positioned lower to show faces */
-  padding: 180px 60px; /* Taller padding */
-  color: white; /* 2. All text is white */
-  text-align: center; /* 3. Text is centered */
+  background-position: center center;
+  padding: 200px 60px;
+  color: white;
+  text-align: center;
 }
 
 .hero-header h1 {
   color: white;
-  font-size: 3em; /* Made larger */
-  line-height: 1.2; /* Added for two-line heading */
-  margin: 0 0 15px 0; /* Just bottom margin */
-  text-transform: uppercase; /* 4. Text is all-caps */
-}
-
-/* 5. New rule for the subtitle */
-.hero-subtitle {
-  font-size: 1.2em;
+  font-size: 3.5em; 
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
   text-transform: uppercase;
-  line-height: 1.5;
-  margin: 0;
-  font-weight: 600; /* Matches h1-h4 styling */
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* --- Section Headings (Green) --- */
+.hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+/* --- Section Headings --- */
 .heading-green {
-  color: #004a44; /* Dark ALPFA Green */
-  font-size: 1.8em;
-  border-bottom: 2px solid #eee;
+  color: #004a44;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
   padding-bottom: 10px;
 }
 
-/* --- Grid for "Diversity" Section --- */
+/* Adds a sleek green underline */
+.heading-green::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #004a44;
+  border-radius: 2px;
+}
+
+/* =======================
+   4. CARD GRID SYSTEMS (New 100/100 Look)
+======================== */
+
+/* --- The 4-Col Grid (Majors) --- */
 .grid-container-4col {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px; /* Space between columns */
-  margin-top: 20px;
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 40px;
 }
 
+/* "Card" styling for Grid Items */
 .grid-item {
-  flex-basis: 23%; /* Divides space into 4 columns */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft modern shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
 }
 
-.placeholder-box {
-  background-color: #eee;
-  height: 150px;
+.grid-item:hover {
+  transform: translateY(-8px); /* Lifts up on hover */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
   width: 100%;
-  margin-bottom: 15px;
+  height: 160px;
+  object-fit: cover;
 }
 
-/* --- Grid for "Efforts" Section --- */
+.grid-item ul {
+  padding: 20px;
+}
+
+.grid-item li {
+  font-size: 0.95em;
+  color: #555;
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: 8px;
+}
+.grid-item li:last-child {
+  border-bottom: none;
+}
+
+
+/* --- The 2-Col Grid (Efforts/Events) --- */
 .grid-container-2col {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: space-between;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 40px;
 }
 
 .grid-item-effort {
-    flex-basis: calc(50% - 20px); /* Two columns, accounting for gap */
+    background: transparent; /* Text areas stay transparent */
 }
+
+/* Images get the card treatment */
 .grid-item-effort img {
     width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease;
 }
-.grid-item-effort .placeholder-box.large {
-    height: 300px;
+
+.grid-item-effort img:hover {
+    transform: scale(1.02); /* Subtle zoom on images */
 }
+
 .grid-item-effort h4 {
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: #333;
-    margin: 10px 0 5px 0;
+    margin-bottom: 15px;
 }
 
+/* Awards List Styling */
+.grid-item-effort ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.grid-item-effort ul li {
+    margin-bottom: 12px;
+    font-size: 1.05em;
+}
 
-/* --- "Take Action" Button --- */
+.events-subtitle {
+  font-size: 1.8em;
+  color: #004a44; 
+  margin-top: 60px; 
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* =======================
+   5. INTERACTIVITY & FOOTER
+======================== */
 .cta-button {
   display: inline-block;
-  background-color: #004a44; /* ALPFA Dark Green */
+  background-color: #004a44; /* ALPFA Green */
   color: white;
-  padding: 12px 25px;
+  padding: 16px 35px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 50px; /* Modern Pill Shape */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 74, 68, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 25px;
 }
 
 .cta-button:hover {
-  background-color: #002c29; /* Darker green on hover */
+  background-color: #002c29;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 74, 68, 0.4);
 }
 
-/* --- Footer --- */
 footer {
   text-align: center;
-  padding: 30px;
-  background: #333;
-  color: #aaa;
-  font-size: 0.9em;
+  padding: 50px;
+  background: #222;
+  color: #888;
+  font-size: 0.95em;
 }
 
-/* Use Flexbox to align footer items in one line */
 .footer-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
-  gap: 15px; /* Space between items */
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Specific styling for footer links to override default blue */
-footer a,
-footer a:link,
-footer a:visited {
-  color: #aaa; /* Matches footer text color */
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px; /* Space between icon and text */
+footer a {
+  color: #ccc;
+  transition: color 0.2s;
 }
 
 footer a:hover {
-  text-decoration: underline;
-  color: #fff; /* Highlight on hover */
+  color: white;
+  text-decoration: none;
 }
 
 .separator {
-  color: #555; /* Slightly darker for the pipes | */
-}
-
-
-/* THIS IS THE NEW, CORRECTED RULE. 
-  It only targets images inside the 4-column grid.
-*/
-.grid-container-4col .grid-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 8px;
-}
-
-/* --- Styling for the new awards list --- */
-#efforts .grid-item-effort ul {
-  list-style-type: disc; /* Adds the bullets back */
-  padding-left: 25px;    /* Adds space for the bullets */
-  margin-top: 15px;
-}
-
-#efforts .grid-item-effort ul li {
-  margin-bottom: 10px; /* Adds nice spacing between awards */
-}
-
-/* --- Styling for new Events subtitle (UPDATED COLOR) --- */
-.events-subtitle {
-  font-size: 1.5em;
-  color: #004a44; /* CHANGED TO ALPFA GREEN */
-  margin-top: 40px; /* Adds space above the subtitle */
-  margin-bottom: 10px; /* Space below subtitle, before grid */
-}
-
-/* --- Adjusts h4 margin for Events (title above image) --- */
-/* This targets h4s ONLY in the SECOND 2-column grid */
-#efforts .grid-container-2col + .grid-container-2col .grid-item-effort h4 {
-  margin-top: 0; /* Remove top margin */
-  margin-bottom: 15px; /* Add space below title, before image */
-}
-
-/* --- UNIVERSAL STYLE for all images in the Efforts/Awards section --- */
-#efforts .grid-item-effort img {
-  width: 100%;
-  height: 300px; /* Sets consistent height for awards AND events */
-  object-fit: cover; /* Crops image perfectly */
-  border-radius: 5px; /* Optional: Adds nice rounded corners */
-  margin-top: 10px; /* Adds space between text and image */
+  color: #444;
 }
 
 /* =======================
-   Responsive / Mobile Styles
+   6. MOBILE RESPONSIVENESS
 ======================== */
 @media (max-width: 768px) {
-
-  /* --- Changes the sidebar from a side-bar to a top-bar --- */
   .sidebar {
-    position: relative; /* No longer fixed to the side */
-    width: 100%;        /* Becomes full-width */
-    height: auto;       /* Height adjusts to content */
+    position: relative;
+    width: 100%;
+    height: auto;
     padding: 20px;
-    /* On mobile, we stack items but keep background */
     flex-direction: column; 
   }
-
-  /* Hide sidebar socials on mobile header to save space (since they are in footer) */
-  .sidebar-socials {
-    display: none;
+  
+  .sidebar nav {
+    flex-direction: row; 
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 15px;
+  }
+  
+  .sidebar nav a {
+    white-space: nowrap; 
+    font-size: 0.9em;
+    background: rgba(255,255,255,0.1);
   }
 
-  /* --- Aligns the top logo/title to the left on mobile --- */
-  .sidebar-header {
-    justify-content: flex-start;
-    margin-bottom: 20px;
-  }
-
-  /* --- This is the main fix! --- */
   .main-content {
-    margin-left: 0; /* Removes the 250px left margin */
+    margin-left: 0;
   }
 
-  /* --- Reduces padding on small screens --- */
   section {
-    padding: 30px 20px;
+    padding: 40px 20px;
   }
   
-  /* --- Updated Hero Styles for Mobile --- */
   .hero-header {
-    padding: 80px 20px; /* Adjusted mobile padding */
-    background-position: center 75%; /* Pushes image up to show faces */
+    padding: 100px 20px;
   }
-
+  
   .hero-header h1 {
-    font-size: 2.2em; /* Adjusted mobile title size */
-  }
-  
-  .hero-subtitle {
-    font-size: 1em; /* Subtitle style for mobile */
+    font-size: 2.2em;
   }
 
-  /* --- Stacks the 4-column grid vertically --- */
-  .grid-container-4col {
-    flex-direction: column; /* Stacks the columns */
-    gap: 30px; /* Adds space between the stacked items */
-  }
-  
-  /* --- Stacks the 2-column grid vertically --- */
-  .grid-item-effort {
-    flex-basis: 100%; /* Makes each item full-width */
+  /* Stack grids on mobile */
+  .grid-container-4col, 
+  .grid-container-2col {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
