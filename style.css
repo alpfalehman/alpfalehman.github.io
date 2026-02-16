@@ -416,7 +416,7 @@ footer a:hover {
 /* The Premium Sponsor Card */
 .sponsor-card {
   background: white;
-  padding: 20px; /* Reduced padding for cleaner fit */
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border: 1px solid #eaeaea;
@@ -437,27 +437,12 @@ footer a:hover {
   border-color: #004a44; 
 }
 
-/* LOGO FIX: This ensures the logo is never "mad big" */
+/* LOGO FIX */
 .sponsor-card img {
-  max-height: 80px; /* Limits height (Key Fix) */
+  max-height: 80px; /* Limits height */
   max-width: 90%;   /* Ensures side padding */
   width: auto;
   height: auto;
   object-fit: contain;
   transition: filter 0.3s ease;
-}
-
-.sponsor-badge {
-  background-color: #004a44;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75em;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 5px 15px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
