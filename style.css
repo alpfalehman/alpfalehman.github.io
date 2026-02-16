@@ -1,3 +1,6 @@
+/* =======================
+   1. GLOBAL STYLES & TYPOGRAPHY
+======================== */
 body {
   font-family: 'Open Sans', sans-serif; /* Upgraded Body Font */
   margin: 0;
@@ -248,7 +251,7 @@ a {
 }
 
 .grid-item-effort {
-    background: transparent; /* Text areas stay transparent */
+    background: transparent;
 }
 
 /* Images get the card treatment */
@@ -392,4 +395,78 @@ footer a:hover {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+}
+
+/* =======================
+   7. SPONSORS SECTION (New!)
+======================== */
+#sponsors {
+  text-align: center;
+  background-color: #f8fcfb; /* Very light hint of green/grey */
+  border-top: 1px solid #eee;
+}
+
+.sponsor-intro {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.8;
+}
+
+.sponsor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* The Premium Sponsor Card */
+.sponsor-card {
+  background: white;
+  padding: 30px 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+  
+  /* Dimensions */
+  width: 280px; 
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Hover Effect: Lifts up and glows green */
+.sponsor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 74, 68, 0.15);
+  border-color: #004a44; 
+}
+
+.sponsor-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Optional: filter: grayscale(100%); if you want it B&W until hover */
+  transition: filter 0.3s ease;
+}
+
+/* The "Official Sponsor" Badge */
+.sponsor-badge {
+  background-color: #004a44;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
