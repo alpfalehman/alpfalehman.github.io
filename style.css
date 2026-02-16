@@ -46,6 +46,7 @@ a {
   top: 0;
   left: 0;
   height: 100vh;
+  /* ORIGINAL BRAND GRADIENT */
   background: linear-gradient(to bottom, #348AC7, #74D680); 
   color: white;
   padding: 40px 30px;
@@ -389,7 +390,7 @@ footer a:hover {
 }
 
 /* =======================
-   7. SPONSORS SECTION (UPDATED)
+   7. CORPORATE PARTNERS SECTION
 ======================== */
 #sponsors {
   text-align: center;
@@ -413,7 +414,7 @@ footer a:hover {
   gap: 40px;
 }
 
-/* The Premium Sponsor Card */
+/* The Premium Sponsor Card (Now Clickable) */
 .sponsor-card {
   background: white;
   padding: 20px;
@@ -429,6 +430,9 @@ footer a:hover {
   justify-content: center;
   align-items: center;
   position: relative;
+  
+  cursor: pointer; /* Shows it is clickable */
+  text-decoration: none; /* Removes link underline */
 }
 
 .sponsor-card:hover {
