@@ -448,7 +448,7 @@ footer a:hover {
 }
 
 /* =======================
-   8. NEW DROPDOWN / ACCORDION STYLES
+   8. NEW GRID DROPDOWN STYLES
 ======================== */
 .dropdown-wrapper {
     margin-bottom: 25px;
@@ -490,71 +490,111 @@ footer a:hover {
     margin-left: 5px;
 }
 
-/* The Container that Slides Down */
+/* The Grid Container */
 .tiers-content {
     display: none; /* Hidden by default */
     margin-top: 15px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
-    animation: fadeIn 0.4s ease;
+    border: 1px solid #ddd;
+    background: white;
+    width: 100%;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tier-row {
-    display: flex;
-    border-bottom: 1px solid #eee;
-}
-
-.tier-row:last-child {
-    border-bottom: none;
-}
-
-/* Header Row */
-.header-row {
+/* === THE GRID LAYOUT === */
+/* This forces strict columns. 30% | 35% | 35% */
+.grid-header {
+    display: grid;
+    grid-template-columns: 30% 35% 35%;
     background-color: #003B5C; /* PDF Dark Blue */
     color: white;
     font-weight: 700;
+    border-bottom: 1px solid #fff;
 }
-.header-row div {
+.grid-header div {
     padding: 15px;
-    text-transform: uppercase;
-    font-size: 0.9em;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Columns */
-.col-1 { width: 30%; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
-.col-2 { width: 35%; padding: 20px; background-color: #f9fbfd; color: #333; font-size: 0.95em; border-right: 1px solid #eee; }
-.col-3 { width: 35%; padding: 20px; background-color: #eef2f6; color: #333; font-size: 0.95em; }
+.grid-row {
+    display: grid;
+    grid-template-columns: 30% 35% 35%;
+    border-bottom: 1px solid #eee;
+}
+.grid-row:last-child {
+    border-bottom: none;
+}
 
-/* Styling for Tier Info (Icon + Name + Price) */
-.tier-info {
+/* COL 1 - THE TIER CARD */
+.g-col-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     color: white;
     text-align: center;
-    align-items: center;
-    gap: 5px;
 }
-.tier-info i { font-size: 2em; margin-bottom: 5px; }
-.tier-info strong { font-size: 1.1em; display: block; line-height: 1.2; }
-.tier-info span { opacity: 0.9; font-size: 0.9em; }
+.g-col-1 i {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+.g-col-1 strong {
+    font-size: 1.1em;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+.g-col-1 span {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
 
-/* Row Colors */
-.row-blue .col-1 { background-color: #006994; }
-.row-bronze .col-1 { background-color: #C68E17; }
-.row-gold .col-1 { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-.row-platinum .col-1 { background: linear-gradient(to right, #999, #bbb); }
+/* COLORS FOR COLUMN 1 */
+.tier-blue { background-color: #006994; }
+.tier-bronze { background-color: #C68E17; }
+.tier-gold { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.tier-platinum { background: linear-gradient(to right, #999, #bbb); }
 
-/* Mobile Adaptability */
+/* COL 2 & 3 - TEXT CONTENT */
+.g-col-2, .g-col-3 {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.95em;
+    color: #333;
+}
+.g-col-2 {
+    background-color: #f9fbfd;
+    border-right: 1px solid #eee;
+}
+.g-col-3 {
+    background-color: #eef2f6;
+}
+
+/* === MOBILE FIX === */
+/* Stacks vertically only on small screens */
 @media (max-width: 768px) {
-    .tier-row { flex-direction: column; }
-    .col-1, .col-2, .col-3 { width: 100%; border-right: none; text-align: center; }
-    .header-row { display: none; } /* Hide header on mobile */
-    .trigger-desc { display: block; margin-left: 0; font-size: 0.9em; margin-top: 2px; }
-    .col-2::before { content: "Company Gain:"; font-weight: bold; display: block; color: #004a44; margin-bottom: 5px; }
-    .col-3::before { content: "ALPFA Gain:"; font-weight: bold; display: block; color: #004a44; margin-bottom: 5px; }
+    .grid-header { display: none; }
+    
+    .grid-row {
+        grid-template-columns: 1fr; /* 1 column */
+        border-bottom: 5px solid #fff; /* space between cards */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .g-col-1, .g-col-2, .g-col-3 {
+        padding: 15px;
+    }
+    
+    .g-col-2 { border-right: none; border-bottom: 1px solid #eee; }
+    .g-col-2::before { content: "Company Gain:"; display: block; font-weight: bold; color: #004a44; margin-bottom: 5px; }
+    .g-col-3::before { content: "ALPFA Gain:"; display: block; font-weight: bold; color: #004a44; margin-bottom: 5px; }
 }
