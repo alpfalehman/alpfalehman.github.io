@@ -16,18 +16,23 @@
 </head>
 <body>
 
-  <div class="sidebar">
+  <div class="mobile-toggle" onclick="toggleMobileMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="sidebar" id="sidebar">
     <div class="sidebar-top">
         <div class="sidebar-header">
           <img src="https://se-images.campuslabs.com/clink/images/23a8a2db-1744-40ff-b415-eaf718587f1b216697c5-4c83-4056-af66-8e0f87933e91.png?preset=med-sq" alt="ALPFA Lehman Logo">
           <h2>ALPFA Lehman</h2>
         </div>
         <nav>
-          <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
-          <a href="#history"><i class="fas fa-history"></i> History</a>
-          <a href="#team"><i class="fas fa-graduation-cap"></i> Majors</a>
-          <a href="#sponsors"><i class="fas fa-star"></i> Partners</a>
-          <a href="#faq"><i class="fas fa-handshake"></i> Partner</a>
+          <a href="#home" class="active" onclick="closeMobileMenu()"><i class="fas fa-home"></i> Home</a>
+          <a href="#history" onclick="closeMobileMenu()"><i class="fas fa-history"></i> History</a>
+          <a href="#team" onclick="closeMobileMenu()"><i class="fas fa-graduation-cap"></i> Majors</a>
+          <a href="#efforts" onclick="closeMobileMenu()"><i class="fas fa-trophy"></i> Awards</a>
+          <a href="#sponsors" onclick="closeMobileMenu()"><i class="fas fa-star"></i> Partners</a>
+          <a href="#faq" onclick="closeMobileMenu()"><i class="fas fa-handshake"></i> Partner With Us</a>
         </nav>
     </div>
 
@@ -41,11 +46,15 @@
   <div class="main-content">
 
     <header class="hero-header" id="home">
-      <h1>INVESTING IN TOMORROW'S<br>DIVERSE LEADERS</h1>
-      <p class="hero-subtitle">SPONSORSHIP & TALENT BRIEF<br>Building pipelines for diverse leaders</p>
+      <div class="hero-content reveal">
+        <h1>INVESTING IN TOMORROW'S<br>DIVERSE LEADERS</h1>
+        <p class="hero-subtitle">SPONSORSHIP & TALENT BRIEF<br>Building pipelines for diverse leaders</p>
+        <br>
+        <a href="#faq" class="cta-button-hero">Partner With Us</a>
+      </div>
     </header>
 
-    <section id="history">
+    <section id="history" class="reveal">
       <h3 class="heading-green">Our Story, Mission, and Journey</h3>
       <p style="font-size: 1.2em; margin-bottom: 25px; color: #555;"><strong>Elevating Latino Professionals For America</strong></p>
       
@@ -58,7 +67,7 @@
       </div>
     </section>
 
-    <section id="team">
+    <section id="team" class="reveal">
       <h3 class="heading-green">Diversity of Future Talent: Our Majors</h3>
       <p>ALPFA Lehman students represent a broad and ambitious academic base, ready to contribute diverse perspectives to your organization.</p>
       
@@ -98,7 +107,7 @@
       </div>
     </section>
 
-    <section id="efforts">
+    <section id="efforts" class="reveal">
       <h3 class="heading-green">Our Awards & Events</h3>
       <p>We are proud of our chapter's consistent recognition and active community involvement.</p>
 
@@ -181,7 +190,7 @@
       </div>
     </section>
 
-    <section id="sponsors">
+    <section id="sponsors" class="reveal">
       <h3 class="heading-green">Our Corporate Partners</h3>
       
       <p class="sponsor-intro">
@@ -189,7 +198,7 @@
       </p>
 
       <div class="sponsor-container">
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="sponsor-logo-wrapper">
           <a href="https://www.pkfod.com/" target="_blank" class="sponsor-card">
             <img src="pkfod.jpg" alt="PKF O'Connor Davies Logo">
           </a>
@@ -197,7 +206,7 @@
       </div>
     </section>
 
-    <section id="faq">
+    <section id="faq" class="reveal">
       <h3 class="heading-green">Partner With Us</h3>
       <p>Invest in the next generation of diverse talent at Lehman College.</p>
       
@@ -215,7 +224,7 @@
                 <div class="table-scroll-container">
                   <table class="tiers-table">
                     <thead>
-                      <tr>
+                      <tr style="background-color: #003B5C; color: white;">
                         <th class="head-tier">TIERS</th>
                         <th class="head-company">Company Gain</th>
                         <th class="head-alpfa">ALPFA Gain</th>
@@ -223,7 +232,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="cell-tier bg-blue">
+                        <td class="cell-tier" style="background-color: #006994; color: white;">
                           <i class="fas fa-users"></i>
                           <div>
                             <strong>Community Partner</strong>
@@ -239,7 +248,7 @@
                       </tr>
 
                       <tr>
-                        <td class="cell-tier bg-bronze">
+                        <td class="cell-tier" style="background-color: #C68E17; color: white;">
                           <i class="fas fa-medal"></i>
                           <div>
                             <strong>Bronze Partner</strong>
@@ -255,7 +264,7 @@
                       </tr>
 
                       <tr>
-                        <td class="cell-tier bg-gold">
+                        <td class="cell-tier" style="background-color: #EDC110; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
                           <i class="fas fa-award"></i>
                           <div>
                             <strong>Gold Partner</strong>
@@ -271,7 +280,7 @@
                       </tr>
 
                       <tr>
-                        <td class="cell-tier bg-platinum">
+                        <td class="cell-tier" style="background: linear-gradient(to right, #999, #bbb); color: white;">
                           <i class="fas fa-handshake"></i>
                           <div>
                             <strong>Platinum Partner</strong>
@@ -311,16 +320,16 @@
         <span class="separator">|</span>
         <a href="https://www.linkedin.com/in/alpfalc/" target="_blank"><i class="fab fa-linkedin"></i> ALPFA Lehman</a>
       </div>
+      <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.6;">&copy; 2024 ALPFA Lehman College Chapter. All Rights Reserved.</p>
     </footer>
 
   </div> 
 
   <script>
+    // 1. TIER DROPDOWN LOGIC
     function toggleTiers() {
       var content = document.getElementById("tiersContent");
       var icon = document.getElementById("tierIcon");
-      
-      // Check if it is currently hidden (or empty string initially)
       if (content.style.display === "block") {
         content.style.display = "none";
         icon.classList.remove("rotate-icon");
@@ -329,6 +338,35 @@
         icon.classList.add("rotate-icon");
       }
     }
+
+    // 2. MOBILE MENU LOGIC
+    function toggleMobileMenu() {
+      var sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active-mobile");
+    }
+
+    function closeMobileMenu() {
+      var sidebar = document.getElementById("sidebar");
+      sidebar.classList.remove("active-mobile");
+    }
+
+    // 3. SCROLL REVEAL ANIMATION LOGIC
+    // This checks if elements are in view and adds 'active' class
+    window.addEventListener('scroll', reveal);
+
+    function reveal() {
+      var reveals = document.querySelectorAll('.reveal');
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        }
+      }
+    }
+    // Trigger once on load
+    reveal();
   </script>
 
 </body>
