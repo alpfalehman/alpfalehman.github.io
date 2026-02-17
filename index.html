@@ -200,16 +200,87 @@
     <section id="faq">
       <h3 class="heading-green">Partner With Us</h3>
       <p>Invest in the next generation of diverse talent at Lehman College.</p>
-      <ul>
-        <li>
-            <a href="#" class="tier-trigger" onclick="openModal(); return false;">
-                <strong>Review Tiers Here <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></strong>
-            </a>
-             – Click to see our detailed partnership benefits and investment levels.
+      
+      <ul class="partnership-list">
+        
+        <li class="dropdown-wrapper">
+            <div class="dropdown-trigger" onclick="toggleTiers()">
+                <span class="trigger-text">Review Tiers Here</span>
+                <i class="fas fa-chevron-down trigger-icon" id="tierIcon"></i>
+                <span class="trigger-desc">– Click to see our detailed partnership benefits and investment levels.</span>
+            </div>
+
+            <div id="tiersContent" class="tiers-content">
+                
+                <div class="tier-row header-row">
+                    <div class="col-1">TIERS</div>
+                    <div class="col-2">Company Gain</div>
+                    <div class="col-3">ALPFA Gain</div>
+                </div>
+
+                <div class="tier-row row-blue">
+                    <div class="col-1 tier-info">
+                        <i class="fas fa-users"></i>
+                        <strong>Community Partner</strong>
+                        <span>In-Kind Support</span>
+                    </div>
+                    <div class="col-2">
+                        Recognition at events and social media for contributions like space, mentorship, or services.
+                    </div>
+                    <div class="col-3">
+                        Event support, cost savings and new professional connections.
+                    </div>
+                </div>
+
+                <div class="tier-row row-bronze">
+                    <div class="col-1 tier-info">
+                        <i class="fas fa-medal"></i>
+                        <strong>Bronze Partner</strong>
+                        <span>$250</span>
+                    </div>
+                    <div class="col-2">
+                        Logo featured on website, social media recognition, mention at one major event.
+                    </div>
+                    <div class="col-3">
+                        Entry-level corporate relationships & visibility.
+                    </div>
+                </div>
+
+                <div class="tier-row row-gold">
+                    <div class="col-1 tier-info">
+                        <i class="fas fa-award"></i>
+                        <strong>Gold Partner</strong>
+                        <span>$500</span>
+                    </div>
+                    <div class="col-2">
+                        Access to student resume book, invite to events/panels, option to host workshop or info session.
+                    </div>
+                    <div class="col-3">
+                        Direct exposure to recruiters & mentorship connections.
+                    </div>
+                </div>
+
+                <div class="tier-row row-platinum">
+                    <div class="col-1 tier-info">
+                        <i class="fas fa-handshake"></i>
+                        <strong>Platinum Partner</strong>
+                        <span>$1000+</span>
+                    </div>
+                    <div class="col-2">
+                        Co-Branded event, feature posts on LinkedIn/Instagram/Newsletter, first access to collaborations & candidates.
+                    </div>
+                    <div class="col-3">
+                        Long-term strategic partnerships & institutional credibility.
+                    </div>
+                </div>
+
+            </div>
         </li>
+
         <li><strong>Schedule a 15-Min Call:</strong> Connect with our team to customize your engagement strategy.</li>
         <li><strong>Start Your Impact Today:</strong> Finalize your sponsorship and immediately begin recruiting our members.</li>
       </ul>
+
       <a href="https://secure.qgiv.com/for/lehmancollege/" class="cta-button">
         Take action
       </a>
@@ -229,108 +300,18 @@
 
   </div> 
 
-  <div id="tierModal" class="modal-overlay" style="display: none;">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      
-      <div class="modal-header">
-        <h2>Sponsorship Tiers <br>& Partnership Benefits</h2>
-      </div>
-
-      <div class="table-container">
-        <div class="table-header">
-          <div class="col-tier">TIERS</div>
-          <div class="col-gain">Company Gain</div>
-          <div class="col-alpfa">ALPFA Gain</div>
-        </div>
-
-        <div class="table-row row-blue">
-          <div class="col-tier tier-title">
-            <i class="fas fa-users"></i>
-            <div>
-              <strong>Community Partner</strong>
-              <span>In-Kind Support</span>
-            </div>
-          </div>
-          <div class="col-gain">
-            Recognition at events and social media for contributions like space, mentorship, or services.
-          </div>
-          <div class="col-alpfa">
-            Event support, cost savings and new professional connections.
-          </div>
-        </div>
-
-        <div class="table-row row-bronze">
-          <div class="col-tier tier-title">
-            <i class="fas fa-medal"></i>
-            <div>
-              <strong>Bronze Partner</strong>
-              <span>$250</span>
-            </div>
-          </div>
-          <div class="col-gain">
-            Logo featured on website, social media recognition, mention at one major event.
-          </div>
-          <div class="col-alpfa">
-            Entry-level corporate relationships & visibility.
-          </div>
-        </div>
-
-        <div class="table-row row-gold">
-          <div class="col-tier tier-title">
-            <i class="fas fa-award"></i>
-            <div>
-              <strong>Gold Partner</strong>
-              <span>$500</span>
-            </div>
-          </div>
-          <div class="col-gain">
-            Access to student resume book, invite to events/panels, option to host workshop or info session.
-          </div>
-          <div class="col-alpfa">
-            Direct exposure to recruiters & mentorship connections.
-          </div>
-        </div>
-
-        <div class="table-row row-platinum">
-          <div class="col-tier tier-title">
-            <i class="fas fa-handshake"></i>
-            <div>
-              <strong>Platinum Partner</strong>
-              <span>$1000+</span>
-            </div>
-          </div>
-          <div class="col-gain">
-            Co-Branded event, feature posts on LinkedIn/Instagram/Newsletter, first access to collaborations & candidates.
-          </div>
-          <div class="col-alpfa">
-            Long-term strategic partnerships & institutional credibility.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
   <script>
-    function openModal() {
-      // Use Flex to center content
-      document.getElementById('tierModal').style.display = 'flex';
-      // Prevent background scrolling when modal is open
-      document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeModal() {
-      document.getElementById('tierModal').style.display = 'none';
-      // Restore background scrolling
-      document.body.style.overflow = 'auto';
-    }
-
-    // Close modal if user clicks outside the content box
-    window.onclick = function(event) {
-      var modal = document.getElementById('tierModal');
-      if (event.target == modal) {
-        closeModal();
+    function toggleTiers() {
+      var content = document.getElementById("tiersContent");
+      var icon = document.getElementById("tierIcon");
+      
+      // Check if it is currently hidden (or empty string initially)
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        icon.classList.remove("rotate-icon");
+      } else {
+        content.style.display = "block";
+        icon.classList.add("rotate-icon");
       }
     }
   </script>
