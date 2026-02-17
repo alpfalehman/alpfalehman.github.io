@@ -229,7 +229,7 @@
 
   </div> 
 
-  <div id="tierModal" class="modal-overlay">
+  <div id="tierModal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
       
@@ -314,6 +314,7 @@
 
   <script>
     function openModal() {
+      // Use Flex to center content
       document.getElementById('tierModal').style.display = 'flex';
       // Prevent background scrolling when modal is open
       document.body.style.overflow = 'hidden'; 
