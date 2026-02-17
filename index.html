@@ -17,7 +17,6 @@
 <body>
 
   <div class="sidebar">
-    
     <div class="sidebar-top">
         <div class="sidebar-header">
           <img src="https://se-images.campuslabs.com/clink/images/23a8a2db-1744-40ff-b415-eaf718587f1b216697c5-4c83-4056-af66-8e0f87933e91.png?preset=med-sq" alt="ALPFA Lehman Logo">
@@ -33,17 +32,10 @@
     </div>
 
     <div class="sidebar-socials">
-        <a href="https://www.instagram.com/alpfalc" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/alpfalc/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:alpfalc@gmail.com">
-            <i class="fas fa-envelope"></i>
-        </a>
+        <a href="https://www.instagram.com/alpfalc" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/alpfalc/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:alpfalc@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-
   </div>
 
   <div class="main-content">
@@ -71,7 +63,6 @@
       <p>ALPFA Lehman students represent a broad and ambitious academic base, ready to contribute diverse perspectives to your organization.</p>
       
       <div class="grid-container-4col">
-        
         <div class="grid-item">
           <img src="accounting.jpg" alt="Accounting and Finance">
           <ul>
@@ -198,21 +189,24 @@
       </p>
 
       <div class="sponsor-container">
-        
         <div style="display: flex; flex-direction: column; align-items: center;">
           <a href="https://www.pkfod.com/" target="_blank" class="sponsor-card">
             <img src="pkfod.jpg" alt="PKF O'Connor Davies Logo">
           </a>
         </div>
-
       </div>
     </section>
 
     <section id="faq">
-      <h3 class="heading-green">Partner With US</h3>
+      <h3 class="heading-green">Partner With Us</h3>
       <p>Invest in the next generation of diverse talent at Lehman College.</p>
       <ul>
-        <li><strong>Review Tiers Online:</strong> See our detailed partnership benefits and investment levels.</li>
+        <li>
+            <a href="#" class="tier-trigger" onclick="openModal(); return false;">
+                <strong>Review Tiers Here <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></strong>
+            </a>
+             – Click to see our detailed partnership benefits and investment levels.
+        </li>
         <li><strong>Schedule a 15-Min Call:</strong> Connect with our team to customize your engagement strategy.</li>
         <li><strong>Start Your Impact Today:</strong> Finalize your sponsorship and immediately begin recruiting our members.</li>
       </ul>
@@ -227,16 +221,118 @@
         <span class="separator">|</span>
         <span>Bronx, NY</span>
         <span class="separator">|</span>
-        <a href="https://www.instagram.com/alpfalc" target="_blank">
-          <i class="fab fa-instagram"></i> alpfalc
-        </a>
+        <a href="https://www.instagram.com/alpfalc" target="_blank"><i class="fab fa-instagram"></i> alpfalc</a>
         <span class="separator">|</span>
-        <a href="https://www.linkedin.com/in/alpfalc/" target="_blank">
-          <i class="fab fa-linkedin"></i> ALPFA Lehman
-        </a>
+        <a href="https://www.linkedin.com/in/alpfalc/" target="_blank"><i class="fab fa-linkedin"></i> ALPFA Lehman</a>
       </div>
     </footer>
 
   </div> 
+
+  <div id="tierModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      
+      <div class="modal-header">
+        <h2>Sponsorship Tiers <br>& Partnership Benefits</h2>
+      </div>
+
+      <div class="table-container">
+        <div class="table-header">
+          <div class="col-tier">TIERS</div>
+          <div class="col-gain">Company Gain</div>
+          <div class="col-alpfa">ALPFA Gain</div>
+        </div>
+
+        <div class="table-row row-blue">
+          <div class="col-tier tier-title">
+            <i class="fas fa-users"></i>
+            <div>
+              <strong>Community Partner</strong>
+              <span>In-Kind Support</span>
+            </div>
+          </div>
+          <div class="col-gain">
+            Recognition at events and social media for contributions like space, mentorship, or services.
+          </div>
+          <div class="col-alpfa">
+            Event support, cost savings and new professional connections.
+          </div>
+        </div>
+
+        <div class="table-row row-bronze">
+          <div class="col-tier tier-title">
+            <i class="fas fa-medal"></i>
+            <div>
+              <strong>Bronze Partner</strong>
+              <span>$250</span>
+            </div>
+          </div>
+          <div class="col-gain">
+            Logo featured on website, social media recognition, mention at one major event.
+          </div>
+          <div class="col-alpfa">
+            Entry-level corporate relationships & visibility.
+          </div>
+        </div>
+
+        <div class="table-row row-gold">
+          <div class="col-tier tier-title">
+            <i class="fas fa-award"></i>
+            <div>
+              <strong>Gold Partner</strong>
+              <span>$500</span>
+            </div>
+          </div>
+          <div class="col-gain">
+            Access to student resume book, invite to events/panels, option to host workshop or info session.
+          </div>
+          <div class="col-alpfa">
+            Direct exposure to recruiters & mentorship connections.
+          </div>
+        </div>
+
+        <div class="table-row row-platinum">
+          <div class="col-tier tier-title">
+            <i class="fas fa-handshake"></i>
+            <div>
+              <strong>Platinum Partner</strong>
+              <span>$1000+</span>
+            </div>
+          </div>
+          <div class="col-gain">
+            Co-Branded event, feature posts on LinkedIn/Instagram/Newsletter, first access to collaborations & candidates.
+          </div>
+          <div class="col-alpfa">
+            Long-term strategic partnerships & institutional credibility.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('tierModal').style.display = 'flex';
+      // Prevent background scrolling when modal is open
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal() {
+      document.getElementById('tierModal').style.display = 'none';
+      // Restore background scrolling
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal if user clicks outside the content box
+    window.onclick = function(event) {
+      var modal = document.getElementById('tierModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+
 </body>
 </html>
