@@ -311,24 +311,13 @@ a {
   box-shadow: 0 8px 20px rgba(0, 74, 68, 0.4);
 }
 
-.tier-trigger {
-    color: #004a44;
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.2s;
-}
-.tier-trigger:hover {
-    color: #348AC7;
-}
-
 footer {
   text-align: center;
   padding: 50px;
   background: #222;
   color: #888;
   font-size: 0.95em;
-  position: relative;
-  z-index: 50; /* Ensure footer is below the modal */
+  /* NO Z-INDEX NEEDED - Standard flow */
 }
 
 .footer-container {
@@ -426,7 +415,6 @@ footer a:hover {
   gap: 40px;
 }
 
-/* The Premium Sponsor Card */
 .sponsor-card {
   background: white;
   padding: 20px;
@@ -434,15 +422,12 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border: 1px solid #eaeaea;
   transition: all 0.3s ease;
-  
-  /* Dimensions - Fixed size */
   width: 260px; 
   height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  
   cursor: pointer;
   text-decoration: none;
 }
@@ -463,201 +448,113 @@ footer a:hover {
 }
 
 /* =======================
-   8. MODAL (POPUP) STYLES
-   FIXED Z-INDEX AND DISPLAY
+   8. NEW DROPDOWN / ACCORDION STYLES
 ======================== */
-.modal-overlay {
-    display: none; /* Hidden by default - reinforced by inline style */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Dark background */
-    z-index: 9999; /* HIGHEST PRIORITY - On top of sidebar */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    backdrop-filter: blur(5px);
+.dropdown-wrapper {
+    margin-bottom: 25px;
 }
 
-.modal-content {
-    background-color: white;
-    width: 100%;
-    max-width: 1000px;
-    max-height: 90vh; 
-    overflow-y: auto; 
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    position: relative;
-    padding: 40px;
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    color: #888;
+.dropdown-trigger {
     cursor: pointer;
-    transition: color 0.2s;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 5px 0;
 }
 
-.close-modal:hover {
-    color: #333;
+.trigger-text {
+    color: #004a44; /* Green Brand Color */
+    font-weight: 700;
+    font-size: 1.1em;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s;
 }
 
-.modal-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.modal-header h2 {
-    color: #005b96;
-    font-size: 2em;
-    line-height: 1.3;
+.dropdown-trigger:hover .trigger-text {
+    border-bottom: 2px solid #004a44;
 }
 
-/* TABLE STYLING */
-.table-container {
-    display: flex;
-    flex-direction: column;
+.trigger-icon {
+    color: #004a44;
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}
+
+.trigger-desc {
+    color: #555;
+    margin-left: 5px;
+}
+
+/* The Container that Slides Down */
+.tiers-content {
+    display: none; /* Hidden by default */
+    margin-top: 15px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    animation: fadeIn 0.4s ease;
 }
 
-.table-header {
-    display: flex;
-    background-color: #003B5C; /* Dark Blue Header matching PDF */
-    color: white;
-    font-weight: 700;
-    padding: 15px;
-    text-align: center;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.table-row {
+.tier-row {
     display: flex;
-    border-bottom: 1px solid #ddd;
-    align-items: stretch; /* Make cols equal height */
-    min-height: 80px;
+    border-bottom: 1px solid #eee;
 }
-.table-row:last-child {
+
+.tier-row:last-child {
     border-bottom: none;
 }
 
-/* Column Widths */
-.col-tier {
-    width: 30%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center horizontally */
-    text-align: center;
+/* Header Row */
+.header-row {
+    background-color: #003B5C; /* PDF Dark Blue */
     color: white;
+    font-weight: 700;
 }
-.col-gain {
-    width: 35%;
-    padding: 20px;
-    background: #f0f4f8; /* Light grey/blue background for Company Gain */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header-row div {
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+/* Columns */
+.col-1 { width: 30%; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+.col-2 { width: 35%; padding: 20px; background-color: #f9fbfd; color: #333; font-size: 0.95em; border-right: 1px solid #eee; }
+.col-3 { width: 35%; padding: 20px; background-color: #eef2f6; color: #333; font-size: 0.95em; }
+
+/* Styling for Tier Info (Icon + Name + Price) */
+.tier-info {
+    color: white;
     text-align: center;
-    font-size: 0.95em;
-    color: #333;
-    border-right: 1px solid #ddd;
-}
-.col-alpfa {
-    width: 35%;
-    padding: 20px;
-    background: #e6ebf1; /* Slightly darker grey for ALPFA Gain */
-    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.95em;
-    color: #333;
+    gap: 5px;
 }
+.tier-info i { font-size: 2em; margin-bottom: 5px; }
+.tier-info strong { font-size: 1.1em; display: block; line-height: 1.2; }
+.tier-info span { opacity: 0.9; font-size: 0.9em; }
 
-/* Tier Title Styling */
-.tier-title {
-    flex-direction: column; /* Stack Icon and Text */
-    gap: 10px;
-}
+/* Row Colors */
+.row-blue .col-1 { background-color: #006994; }
+.row-bronze .col-1 { background-color: #C68E17; }
+.row-gold .col-1 { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.row-platinum .col-1 { background: linear-gradient(to right, #999, #bbb); }
 
-.tier-title i {
-    font-size: 2.2em;
-    margin-bottom: 5px;
-}
-
-.tier-title strong {
-    font-size: 1.1em;
-    font-weight: 800;
-    display: block;
-}
-.tier-title span {
-    font-size: 0.95em;
-    opacity: 0.9;
-    font-weight: 600;
-}
-
-/* Row Colors (Backgrounds for Tier Column ONLY) */
-/* Community - Blue */
-.row-blue .col-tier { background-color: #006994; } 
-
-/* Bronze - Bronze Color */
-.row-bronze .col-tier { background-color: #C68E17; } 
-
-/* Gold - Yellow Gold */
-.row-gold .col-tier { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.2); } 
-
-/* Platinum - Grey/Silver */
-.row-platinum .col-tier { 
-    background: linear-gradient(to right, #a0a0a0, #c0c0c0); 
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-/* MOBILE RESPONSIVE TABLE */
+/* Mobile Adaptability */
 @media (max-width: 768px) {
-    .modal-content {
-        padding: 15px;
-    }
-    
-    .table-header {
-        display: none; 
-    }
-    
-    .table-row {
-        flex-direction: column;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        margin-bottom: 25px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .col-tier {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .col-gain, .col-alpfa {
-        width: 100%;
-        border-right: none;
-        padding: 15px;
-        background: white; /* Clean white background on mobile */
-        border-bottom: 1px solid #eee;
-    }
-    
-    .col-gain::before { content: "Company Gain"; display: block; font-weight: 800; color: #004a44; margin-bottom: 5px; text-transform: uppercase; font-size: 0.8em; }
-    .col-alpfa::before { content: "ALPFA Gain"; display: block; font-weight: 800; color: #004a44; margin-bottom: 5px; text-transform: uppercase; font-size: 0.8em; }
+    .tier-row { flex-direction: column; }
+    .col-1, .col-2, .col-3 { width: 100%; border-right: none; text-align: center; }
+    .header-row { display: none; } /* Hide header on mobile */
+    .trigger-desc { display: block; margin-left: 0; font-size: 0.9em; margin-top: 2px; }
+    .col-2::before { content: "Company Gain:"; font-weight: bold; display: block; color: #004a44; margin-bottom: 5px; }
+    .col-3::before { content: "ALPFA Gain:"; font-weight: bold; display: block; color: #004a44; margin-bottom: 5px; }
 }
