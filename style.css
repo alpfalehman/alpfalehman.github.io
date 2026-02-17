@@ -448,7 +448,8 @@ footer a:hover {
 }
 
 /* =======================
-   8. NEW GRID DROPDOWN STYLES
+   8. NEW TABLE DROPDOWN STYLES
+   (This forces the PDF layout)
 ======================== */
 .dropdown-wrapper {
     margin-bottom: 25px;
@@ -464,7 +465,7 @@ footer a:hover {
 }
 
 .trigger-text {
-    color: #004a44; /* Green Brand Color */
+    color: #004a44;
     font-weight: 700;
     font-size: 1.1em;
     border-bottom: 2px solid transparent;
@@ -490,7 +491,7 @@ footer a:hover {
     margin-left: 5px;
 }
 
-/* The Grid Container */
+/* THE CONTAINER */
 .tiers-content {
     display: none; /* Hidden by default */
     margin-top: 15px;
@@ -502,99 +503,81 @@ footer a:hover {
     width: 100%;
 }
 
-/* === THE GRID LAYOUT === */
-/* This forces strict columns. 30% | 35% | 35% */
-.grid-header {
-    display: grid;
-    grid-template-columns: 30% 35% 35%;
-    background-color: #003B5C; /* PDF Dark Blue */
-    color: white;
-    font-weight: 700;
-    border-bottom: 1px solid #fff;
-}
-.grid-header div {
-    padding: 15px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.2);
+.table-scroll-container {
+    width: 100%;
+    /* This guarantees horizontal scroll on mobile */
+    overflow-x: auto; 
 }
 
-.grid-row {
-    display: grid;
-    grid-template-columns: 30% 35% 35%;
+/* TABLE STYLING */
+.tiers-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Forces the table to stay wide so columns don't squish */
+    min-width: 700px; 
+}
+
+/* HEADER */
+.tiers-table th {
+    background-color: #003B5C; /* PDF Dark Blue */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+/* CELLS */
+.tiers-table td {
+    padding: 20px;
+    vertical-align: middle;
     border-bottom: 1px solid #eee;
 }
-.grid-row:last-child {
+
+.tiers-table tr:last-child td {
     border-bottom: none;
 }
 
-/* COL 1 - THE TIER CARD */
-.g-col-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+/* COLUMN 1: THE COLORED TIERS */
+.cell-tier {
+    width: 30%;
     color: white;
     text-align: center;
 }
-.g-col-1 i {
-    font-size: 2em;
-    margin-bottom: 8px;
-}
-.g-col-1 strong {
-    font-size: 1.1em;
+
+.cell-tier i {
+    font-size: 2.2em;
+    margin-bottom: 10px;
     display: block;
-    line-height: 1.2;
-    margin-bottom: 4px;
 }
-.g-col-1 span {
+
+.cell-tier strong {
+    display: block;
+    font-size: 1.1em;
+    line-height: 1.2;
+}
+
+.cell-tier span {
     font-size: 0.9em;
     opacity: 0.9;
 }
 
-/* COLORS FOR COLUMN 1 */
-.tier-blue { background-color: #006994; }
-.tier-bronze { background-color: #C68E17; }
-.tier-gold { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-.tier-platinum { background: linear-gradient(to right, #999, #bbb); }
+/* EXACT PDF COLORS */
+.bg-blue { background-color: #006994; }
+.bg-bronze { background-color: #C68E17; }
+.bg-gold { background-color: #EDC110; text-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+.bg-platinum { background: linear-gradient(to right, #999, #bbb); }
 
-/* COL 2 & 3 - TEXT CONTENT */
-.g-col-2, .g-col-3 {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+/* COLUMNS 2 & 3: DESCRIPTIONS */
+.cell-desc {
+    width: 35%;
     font-size: 0.95em;
     color: #333;
-}
-.g-col-2 {
+    text-align: center;
     background-color: #f9fbfd;
-    border-right: 1px solid #eee;
-}
-.g-col-3 {
-    background-color: #eef2f6;
 }
 
-/* === MOBILE FIX === */
-/* Stacks vertically only on small screens */
-@media (max-width: 768px) {
-    .grid-header { display: none; }
-    
-    .grid-row {
-        grid-template-columns: 1fr; /* 1 column */
-        border-bottom: 5px solid #fff; /* space between cards */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        margin-bottom: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .g-col-1, .g-col-2, .g-col-3 {
-        padding: 15px;
-    }
-    
-    .g-col-2 { border-right: none; border-bottom: 1px solid #eee; }
-    .g-col-2::before { content: "Company Gain:"; display: block; font-weight: bold; color: #004a44; margin-bottom: 5px; }
-    .g-col-3::before { content: "ALPFA Gain:"; display: block; font-weight: bold; color: #004a44; margin-bottom: 5px; }
+.tiers-table td:nth-child(3) {
+    background-color: #eef2f6; /* Slightly darker grey for ALPFA Gain */
 }
