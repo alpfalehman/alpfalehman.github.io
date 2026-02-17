@@ -311,6 +311,16 @@ a {
   box-shadow: 0 8px 20px rgba(0, 74, 68, 0.4);
 }
 
+.tier-trigger {
+    color: #004a44;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.tier-trigger:hover {
+    color: #348AC7;
+}
+
 footer {
   text-align: center;
   padding: 50px;
@@ -414,7 +424,7 @@ footer a:hover {
   gap: 40px;
 }
 
-/* The Premium Sponsor Card (Now Clickable) */
+/* The Premium Sponsor Card */
 .sponsor-card {
   background: white;
   padding: 20px;
@@ -431,8 +441,8 @@ footer a:hover {
   align-items: center;
   position: relative;
   
-  cursor: pointer; /* Shows it is clickable */
-  text-decoration: none; /* Removes link underline */
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .sponsor-card:hover {
@@ -441,12 +451,195 @@ footer a:hover {
   border-color: #004a44; 
 }
 
-/* LOGO FIX */
 .sponsor-card img {
-  max-height: 80px; /* Limits height */
-  max-width: 90%;   /* Ensures side padding */
+  max-height: 80px; 
+  max-width: 90%;   
   width: auto;
   height: auto;
   object-fit: contain;
   transition: filter 0.3s ease;
+}
+
+/* =======================
+   8. MODAL (POPUP) STYLES
+======================== */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Dark transparent background */
+    z-index: 2000; /* On top of sidebar */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh; /* Don't overflow screen height */
+    overflow-y: auto; /* Scroll if content is tall */
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 40px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.modal-header h2 {
+    color: #005b96;
+    font-size: 2em;
+}
+
+/* TABLE STYLING */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    background-color: #003355; /* Dark Blue Header */
+    color: white;
+    font-weight: 700;
+    padding: 15px;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* Column Widths */
+.col-tier {
+    width: 30%;
+    padding: 15px;
+    border-right: 1px solid #eee;
+}
+.col-gain {
+    width: 35%;
+    padding: 15px;
+    border-right: 1px solid #eee;
+    font-size: 0.95em;
+    color: #444;
+}
+.col-alpfa {
+    width: 35%;
+    padding: 15px;
+    font-size: 0.95em;
+    color: #444;
+}
+
+/* Tier Title Styling */
+.tier-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tier-title i {
+    font-size: 2em;
+}
+
+.tier-title div {
+    display: flex;
+    flex-direction: column;
+}
+.tier-title strong {
+    font-size: 1.1em;
+    font-weight: 800;
+}
+.tier-title span {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Row Colors (Backgrounds for Tier Column) */
+.row-blue .col-tier { background-color: #005b96; color: white; border-right: none; }
+.row-bronze .col-tier { background-color: #c58c46; color: white; border-right: none; }
+.row-gold .col-tier { background-color: #f0c419; color: black; border-right: none; }
+.row-platinum .col-tier { background-color: #a0a0a0; color: white; border-right: none; }
+
+/* Icon specific adjustments */
+.row-gold i { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+
+/* MOBILE RESPONSIVE TABLE */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .table-header {
+        display: none; /* Hide standard header on mobile */
+    }
+    
+    .table-container {
+        border: none;
+    }
+
+    .table-row {
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .col-tier {
+        width: 100%;
+        border-right: none;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .col-gain, .col-alpfa {
+        width: 100%;
+        border-right: none;
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0;
+        box-sizing: border-box;
+    }
+    
+    /* Add labels for mobile context */
+    .col-gain::before { content: "Company Gain: "; font-weight: 700; color: #004a44; display: block; margin-bottom: 4px; }
+    .col-alpfa::before { content: "ALPFA Gain: "; font-weight: 700; color: #004a44; display: block; margin-bottom: 4px; }
 }
