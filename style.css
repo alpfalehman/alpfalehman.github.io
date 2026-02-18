@@ -177,12 +177,12 @@ a {
   margin-left: 260px;
 }
 
-/* --- Hero Section (PARALLAX) --- */
-/* UPDATED: Green gradient removed so the original image colors show */
+/* --- Hero Section (UPDATED: DARK OVERLAY, NO PARALLAX) --- */
 .hero-header {
-  /* This creates the fixed background effect */
-  background: url('hero-image.jpg'); /* Ensure this image is in your folder */
-  background-attachment: fixed; /* PARALLAX MAGIC */
+  /* Dark gradient overlay restored */
+  background: linear-gradient(rgba(0, 74, 68, 0.85), rgba(0, 74, 68, 0.85)), 
+              url('hero-image.jpg'); /* Ensure this image is in your folder */
+  background-attachment: scroll; /* Parallax removed */
   background-size: cover;
   background-position: center center;
   height: 80vh; /* Full screen height feel */
@@ -494,15 +494,13 @@ footer a:hover {
   position: relative;
   cursor: pointer;
   
-  /* UPDATED: GRAYSCALE FILTER REMOVED */
-  /* Logo will show original colors always */
+  /* GRAYSCALE FILTER IS GONE - Logos show in color */
 }
 
 .sponsor-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 74, 68, 0.15);
   border-color: #004a44; 
-  /* UPDATED: Hover filter removed as it's no longer needed */
 }
 
 .sponsor-card img {
