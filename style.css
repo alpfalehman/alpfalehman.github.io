@@ -178,10 +178,10 @@ a {
 }
 
 /* --- Hero Section (PARALLAX) --- */
+/* UPDATED: Green gradient removed so the original image colors show */
 .hero-header {
   /* This creates the fixed background effect */
-  background: linear-gradient(rgba(0, 50, 40, 0.7), rgba(0, 50, 40, 0.6)), 
-              url('hero-image.jpg'); 
+  background: url('hero-image.jpg'); /* Ensure this image is in your folder */
   background-attachment: fixed; /* PARALLAX MAGIC */
   background-size: cover;
   background-position: center center;
@@ -455,7 +455,7 @@ footer a:hover {
 }
 
 /* =======================
-   7. CORPORATE PARTNERS (PREMIUM HOVER)
+   7. CORPORATE PARTNERS (UPDATED: NO GRAYSCALE)
 ======================== */
 #sponsors {
   text-align: center;
@@ -494,18 +494,15 @@ footer a:hover {
   position: relative;
   cursor: pointer;
   
-  /* GRAYSCALE FILTER BY DEFAULT */
-  filter: grayscale(100%);
-  opacity: 0.8;
+  /* UPDATED: GRAYSCALE FILTER REMOVED */
+  /* Logo will show original colors always */
 }
 
 .sponsor-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 74, 68, 0.15);
   border-color: #004a44; 
-  /* COLOR ON HOVER */
-  filter: grayscale(0%);
-  opacity: 1;
+  /* UPDATED: Hover filter removed as it's no longer needed */
 }
 
 .sponsor-card img {
