@@ -177,12 +177,13 @@ a {
   margin-left: 260px;
 }
 
-/* --- Hero Section (UPDATED: DARK OVERLAY, NO PARALLAX) --- */
+/* --- Hero Section (UPDATED: DARK BLACK OVERLAY & FIXED ATTACHMENT) --- */
 .hero-header {
-  /* Dark gradient overlay restored */
-  background: linear-gradient(rgba(0, 74, 68, 0.85), rgba(0, 74, 68, 0.85)), 
+  /* Use a neutral dark black overlay to match the reference image */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
               url('hero-image.jpg'); /* Ensure this image is in your folder */
-  background-attachment: scroll; /* Parallax removed */
+  /* Keep attachment fixed so it stays centered during scroll (parallax) */
+  background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   height: 80vh; /* Full screen height feel */
@@ -455,7 +456,7 @@ footer a:hover {
 }
 
 /* =======================
-   7. CORPORATE PARTNERS (UPDATED: NO GRAYSCALE)
+   7. CORPORATE PARTNERS (NO GRAYSCALE)
 ======================== */
 #sponsors {
   text-align: center;
