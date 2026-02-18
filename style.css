@@ -179,14 +179,12 @@ a {
 
 /* --- Hero Section --- */
 .hero-header {
-  /* Use a neutral dark black overlay to match the reference image */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('hero-image.jpg'); /* Ensure this image is in your folder */
-  /* Keep attachment fixed so it stays centered during scroll (parallax) */
+              url('hero-image.jpg'); 
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
-  height: 80vh; /* Full screen height feel */
+  height: 80vh; 
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -196,28 +194,49 @@ a {
   text-align: center;
 }
 
-/* Updated H1 specifically for the new longer tagline */
-.hero-content h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
-  line-height: 1.2;
-  margin: 0 0 25px 0;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-weight: 800;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* New style for the two smaller lines below the main title */
-.sub-line {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1em;
-  font-weight: 700;
+.hero-content h1 {
+  font-size: 3.8em; 
+  line-height: 1.1;
+  margin: 0 0 15px 0;
+  letter-spacing: -1px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 5px 0;
-  opacity: 1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.cta-button-hero {
+  display: inline-block;
+  background-color: white;
+  color: #004a44;
+  padding: 15px 40px;
+  font-weight: 800;
+  border-radius: 50px;
+  text-transform: uppercase;
+  margin-top: 35px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button-hero:hover {
+  background-color: #004a44;
+  color: white;
+  transform: translateY(-3px);
 }
 
 /* --- Section Headings --- */
@@ -285,6 +304,7 @@ a {
 .grid-item li:last-child {
   border-bottom: none;
 }
+
 
 /* --- The 2-Col Grid --- */
 .grid-container-2col {
@@ -431,12 +451,8 @@ footer a:hover {
     background-attachment: scroll; /* Disable parallax on mobile for performance */
   }
   
-  /* Adjusted for mobile */
   .hero-header h1 {
-    font-size: 1.8em; 
-  }
-  .sub-line {
-    font-size: 0.9em; 
+    font-size: 2.2em;
   }
 
   .grid-container-4col, 
